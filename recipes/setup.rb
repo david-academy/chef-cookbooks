@@ -7,10 +7,15 @@ package 'git' do
   action :install
 end
 
+#node['ipaddress']
+#node['memory']['total']
+
 package 'ntp' 
 
-file '/etc/motd' do
-  content 'this server is the property of Henry Potter'
+template '/etc/motd' do
+  source 'motd.erb'
+  
+
   action :create
   owner 'root'
   group 'root'
